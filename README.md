@@ -1,5 +1,5 @@
 # Introduction
-A home assistant (hassio) component for bidirectional communication with BPL IQ home automation controller.
+A [home assistant](https://www.home-assistant.io/) (hassio) component for bidirectional communication with BPL IQ home automation controller.
 Use it to integrate hassio with BPL home automation, the biggest benefit being google home / alexa automation.
 
 My setup is a raspberry pi 3b running Hass OS, connecting to the BPL controller via a local TCP socket.
