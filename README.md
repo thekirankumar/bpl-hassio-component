@@ -12,9 +12,10 @@ Then Set the sensors array to the all the lights and fans at home.
 
 Every sensor requires a bpl_id to be set correctly.
 To get bpl_id connect to your controller via FTP and download this file ftp://bpl@192.168.1.10/home/root/db/sysdb.xml, default password is 123. 
--`bpl_id` is the endpoint attribute present in smarthome/zone/device/endpoint in the sysdb.xml file
--`unique_id` is the ID which will be the entity id hassio will use.
-- `name` is the friendly name of the entity.
+
+- `bpl_id` is the endpoint attribute present in smarthome/zone/device/endpoint in the sysdb.xml file
+- `unique_id` is the ID which will be the entity id hassio will use.
+- `name` is a friendly name of the entity which will be shown in the hassio lovelace UI
 
 Copy all the files (init,light.py,manifest etc) present in this repo to custom_components/bpl folder in hassio.
 
