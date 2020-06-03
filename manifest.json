@@ -1,0 +1,8 @@
+{
+  "domain": "bpl",
+  "name": "BPL Smart Home integration with Home assistant",
+  "documentation": "https://github.com/thekirankumar/bpl-hassio-component",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": []
+}
