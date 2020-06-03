@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 A home assistant (hassio) component for bidirectional communication with BPL IQ home automation controller.
 Use it to integrate hassio with BPL home automation, the biggest benefit being google home / alexa automation.
 
@@ -6,7 +6,7 @@ My setup is a raspberry pi 3b running Hass OS, connecting to the BPL controller 
 
 Its a raw implementation, just to get things working. Lets call this v0.9 to being with. Things are not stable yet.
 
-#Setup
+# Setup
 For setting up, set the DEFAULT_HOST to the IP of the controller.
 Then Set the sensors array to the all the lights and fans at home.
 
@@ -18,5 +18,5 @@ To get bpl_id connect to your controller via FTP and download this file ftp://bp
 
 Copy all the files (init,light.py,manifest etc) present in this repo to custom_components/bpl folder in hassio.
 
-#Conclusion
+# Conclusion
 Once you have successfully got this up and running, you can uninstall the crappy BPL app and use HA app instead :)
