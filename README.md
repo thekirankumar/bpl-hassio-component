@@ -6,6 +6,8 @@ My setup is a raspberry pi 3b running Hass OS, connecting to the BPL controller 
 
 Its a raw implementation, just to get things working. Lets call this v0.9 to being with. Things are not stable yet.
 
+![hassio-bpl-preview](images/preview.png)
+
 # Setup
 For setting up, set the `DEFAULT_HOST` in the `light.py` file to the IP of the controller. Port will be the default port of `30001`
 Then Set the sensors array to the all the lights and fans at home. Every sensor requires a bpl_id to be set correctly mandatorily.
