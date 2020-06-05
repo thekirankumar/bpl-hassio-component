@@ -16,15 +16,9 @@ A simple wireshark analysis revealed that the app opens a plain TCP socket with 
 This component which is running within home assistant does the exact same thing as the BPL app, and keeps a python based socket connection with the controller open throughout the lifetime. It also handles heartbeat and connection retry to keep the socket always on. You can turn on debug logs in hassio to see what's happening behind the hood.
 
 # Setup
-For setting up, set the `DEFAULT_HOST` in the `light.py` file to the IP of the controller. Port will be the default port of `30001`
-Then Set the sensors array to the all the lights and fans at home. Every sensor requires a bpl_id to be set correctly mandatorily.
+1. Pre requisite for using this component is to install home assistant using these [steps](https://www.home-assistant.io/hassio/installation/).
 
-
-- `bpl_id` is the `endpoint` XML attribute present in smarthome/zone/device/endpoint in the `sysdb.xml` file. To download this file, connect to your BPL controller via FTP and download this file for e.g ftp://bpl@192.168.1.10/home/root/db/sysdb.xml, default username is `bpl`, password is `123`. 
-- `unique_id` is the ID which will be the entity id hassio will use internally (can be anything you wish).
-- `name` is a friendly name of the entity which will be shown in the hassio lovelace UI (can be anything you wish)
-
-Copy all the files present in this repo (init.py,light.py,manifest etc)  to custom_components/bpl folder in hassio (create if it doesnt exist, refer to hassio website on how to setup custom components).
+2. Copy all the files present in this repo (init.py,light.py,manifest etc)  to custom_components/bpl folder in hassio (create if it doesnt exist, refer to hassio website on how to setup custom components).
 
 Enable the component by adding this into hassio's `configuration.yaml` 
 ```yaml
@@ -33,6 +27,17 @@ light:
     host: 192.168.1.10 (optional)
     port: 30001 (optional)
 ```
+
+3. After copying the files and enabling the configuration, you need to modify the `light.py` file as follows
+Set the `DEFAULT_HOST` in the `light.py` file to the IP of the controller. Port will be the default port of `30001`
+Then Set the sensors array to the all the lights and fans at home. Every sensor requires a bpl_id to be set correctly mandatorily.
+
+
+- `bpl_id` is the `endpoint` XML attribute present in smarthome/zone/device/endpoint in the `sysdb.xml` file. To download this file, connect to your BPL controller via FTP and download this file for e.g ftp://bpl@192.168.1.10/home/root/db/sysdb.xml, default username is `bpl`, password is `123`. 
+- `unique_id` is the ID which will be the entity id hassio will use internally (can be anything you wish).
+- `name` is a friendly name of the entity which will be shown in the hassio lovelace UI (can be anything you wish)
+
+4. Make sure that you dont see any errors in the hassio logs page. If everything goes well, the sensors you have added in previous step should show up in the lovelace UI > edit > Unused entities section.
 
 # Conclusion
 Once you have successfully got this up and running, you can uninstall the crappy BPL app and use HA app instead :)
