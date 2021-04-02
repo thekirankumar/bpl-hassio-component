@@ -16,9 +16,9 @@ A simple wireshark analysis revealed that the app opens a plain TCP socket with 
 This component which is running within home assistant does the exact same thing as the BPL app, and keeps a python based socket connection with the controller open throughout the lifetime. It also handles heartbeat and connection retry to keep the socket always on. You can turn on debug logs in hassio to see what's happening behind the hood.
 
 # Setup
-1. Pre requisite for using this component is to install home assistant using these [steps](https://www.home-assistant.io/hassio/installation/).
+1. Pre requisite for using this component is to install home assistant using these [steps](https://www.home-assistant.io/hassio/installation/) and also make sure that home assistant and the BPL controller are on the same network, connected to the same router.
 
-2. Copy all the files present in this repo (init.py,light.py,manifest etc)  to custom_components/bpl folder in hassio (create if it doesnt exist, refer to hassio website on how to setup custom components).
+2. Copy all the files present in this repo (`__init__.py` and all the other files in the folder etc)  to custom_components/bpl folder in hassio (create if it doesnt exist, refer to hassio website on how to setup custom components).
 
 Enable the component by adding this into hassio's `configuration.yaml` 
 ```yaml
@@ -26,7 +26,7 @@ bpl:
 ```
 
 3. After copying the files and enabling the configuration, you need to modify the `__init__.py` file as follows
-Set the `DEFAULT_HOST` in the `__init__.py` file to the IP of the controller. Port will be the default port of `30001`
+Set the `DEFAULT_HOST` in the `__init__.py` file to the IP of the BPL controller, by default it is on 192.168.1.10. Port will be the default port of `30001`
 Then Set the sensors array to the all the lights and fans at home. Every sensor requires a bpl_id to be set correctly mandatorily.
 
 
