@@ -22,14 +22,11 @@ This component which is running within home assistant does the exact same thing 
 
 Enable the component by adding this into hassio's `configuration.yaml` 
 ```yaml
-light:
-  - platform: bpl
-    host: 192.168.1.10 (optional)
-    port: 30001 (optional)
+bpl:
 ```
 
-3. After copying the files and enabling the configuration, you need to modify the `light.py` file as follows
-Set the `DEFAULT_HOST` in the `light.py` file to the IP of the controller. Port will be the default port of `30001`
+3. After copying the files and enabling the configuration, you need to modify the `__init__.py` file as follows
+Set the `DEFAULT_HOST` in the `__init__.py` file to the IP of the controller. Port will be the default port of `30001`
 Then Set the sensors array to the all the lights and fans at home. Every sensor requires a bpl_id to be set correctly mandatorily.
 
 
