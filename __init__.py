@@ -17,7 +17,7 @@ INTERVAL_RECONNECT = 2
 SEND_HEARTBEAT_SECONDS = 15
 
 # after these many retries, component gives up
-CONNECT_RETRIES = 5
+CONNECT_RETRIES = 20
 
 #receive heartbeat packet from controller every x seconds
 #if not heartbeat received, connection will be restarted
@@ -244,7 +244,7 @@ class BPLMonitor(object):
     def connect(self):
 
         if self.connect_count > CONNECT_RETRIES :
-            _LOGGER.debug("Gave up connection retry after "+self.connect_count+" times")
+            _LOGGER.debug("Gave up connection retry after "+str(self.connect_count)+" times")
             return
         else :
             self.connect_count+=1
