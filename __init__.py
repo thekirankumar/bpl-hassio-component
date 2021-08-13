@@ -244,7 +244,7 @@ class BPLMonitor(object):
     def connect(self):
 
         if self.connect_count > CONNECT_RETRIES :
-            _LOGGER.debug("Gave up connection retry after "+str(self.connect_count)+" times")
+            _LOGGER.error("Gave up connection retry after "+str(self.connect_count)+" times")
             return
         else :
             self.connect_count+=1
